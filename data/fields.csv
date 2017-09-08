@@ -8,6 +8,7 @@ width	Total Bridge Width
 n_lanes	Number of Lanes
 skew	Bridge Skew
 gdr_spacing	Girder Spacing
+n_gdr	Number of Girders
 span2depth	Span to Depth Ratio
 t_deck	Deck Thickness
 n_dia	Number of Diaphragms

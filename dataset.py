@@ -1,12 +1,11 @@
-import pandas as pd
-import numpy as np
+import pandas
 import sys
 
 '''
 Some functions for loading a dataset and performing simple data preparation
 '''
 
-def load_dataset(filename, filetype='csv', header=True):
+def load_dataset(filename, filetype='csv', header=True, index_first_col=False):
 
     '''
     Loads a dataset from file
@@ -59,5 +58,12 @@ def load_dataset(filename, filetype='csv', header=True):
             header = False
     
     # Build a new dataframe of the data instance list of lists and return
-    df = pd.DataFrame(data, columns=header_row)
+    df = pandas.DataFrame(data, columns=header_row)
+	
+	# convert to numeric
+    df = df.apply(pandas.to_numeric, errors='ignore')
+	
+	# index first column?
+    df.set_index(df.columns.values[0], inplace=True) if index_first_col else None
+	
     return df

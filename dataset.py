@@ -27,7 +27,7 @@ def load_dataset(filename, filetype='csv',index_first_col=False):
 		df = pandas.read_csv(filename,index_col = 0 if index_first_col else None)
 	
 	# TSV file	
-	if filetype == 'tsv':
+	elif filetype == 'tsv':
 		df = pandas.read_table(filename,index_col = 0 if index_first_col else None)
 
 	# XLS file

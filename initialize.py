@@ -1,6 +1,9 @@
 import sys
 print("Python version: {}".format(sys.version))
 
+import IPython
+print("IPython version: {}".format(IPython.__version__))
+
 import pandas as pd
 print("pandas version: {}".format(pd.__version__) + " name: pd")
 
@@ -10,17 +13,14 @@ print("NumPy version: {}".format(np.__version__) + " name: np")
 import scipy as sp
 print("SciPy version: {}".format(sp.__version__) + " name: sp")
 
-import IPython
-print("IPython version: {}".format(IPython.__version__))
-
 import sklearn
-print("scikit-learn version: {}".format(sklearn.__version__))
+print("scikit-learn version: {}".format(sklearn.__version__)+ " name: skl")
 
-import matplotlib
-print("matplotlib version: {}".format(matplotlib.__version__))
+import plotly as py
+print("plotly version: {}".format(py.__version__) + " name: py")
 
-import plotly 
-print("plotly version: {}".format(plotly.__version__))
+import matplotlib as mpl
+print("matplotlib version: {}".format(mpl.__version__) + " name: mpl")
 
 from IPython.core.interactiveshell import InteractiveShell
 InteractiveShell.ast_node_interactivity = "all"

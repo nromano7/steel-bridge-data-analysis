@@ -1,4 +1,4 @@
-import pandas
+import pandas 
 import sys
 
 '''
@@ -33,7 +33,7 @@ def load_dataset(filename, filetype='csv',index_first_col=False):
 	# XLS file
 	elif filetype == 'xls':
 		# TODO: add pandas.read_xls functionality
-		print('xls not yet implemented')
+		df = pandas.read_excel(filename, index_col=0 if index_first_col else None)
 		#exit()
 		
 	# Neither = problem
@@ -45,3 +45,12 @@ def load_dataset(filename, filetype='csv',index_first_col=False):
 	df = df.apply(pandas.to_numeric, errors='ignore')
 
 	return df
+	
+def clean_sequence(df, exlude_index=False):
+	idx = 1 if exlude_index else 0
+	for col in df.columns[idx:]:
+		df[col] = list(map(clean, df[col].values))
+	return df
+	
+def clean(seq_string,delimiter=',',num_type=float):
+	return list(map(num_type, seq_string.split(delimiter)))
